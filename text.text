@@ -1,1 +1,18 @@
- 
+version --> Define o tamanho do código QR. O valor 1 é o menor tamanho, que pode conter uma quantidade limitada de dados. 
+  
+biblioteca io --> transforma dados de texto em bytes e vice-versa.
+
+fit=True --> garante que o QR code será redimensionado para caber perfeitamente nos dados que você adicionou, ajustando o tamanho da matriz de pixels automaticamente, sem que você precise definir isso manualmente.
+
+io.BytesIO() #Cria um buffer de memória em vez de um arquivo físico.
+
+img_buff = io.BytesIO() para criar um buffer onde pode salvar a imagem em formato PNG. 
+
+
+img_tk = Image.open(io.BytesIO(img_buff))  outro objeto BytesIO para que o Image.open() possa ler a imagem a partir dos bytes. Como getvalue() retorna os dados em formato de bytes, é necessário criar um novo buffer BytesIO para que o Pillow possa processar esses dados.
+
+
+//ERROR_CORRECT_L: Corrige até 7% de erros.
+//ERROR_CORRECT_M: Corrige até 15% de erros.
+//ERROR_CORRECT_Q: Corrige até 25% de erros.
+//ERROR_CORRECT_H: Corrige até 30% de erros.
