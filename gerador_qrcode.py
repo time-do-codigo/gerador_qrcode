@@ -34,8 +34,8 @@ def gerador_qrcode():
     qr_image = ImageTk.PhotoImage(img_byte)  # converte essa imagem do Pillow em um objeto que pode ser exibido em uma interface Tkinter.
     
     #Exibe a imagem em uma etiqueta
-    qr_label.config(image = qr_image)
-    qr_label.image = qr_image #garante que o objeto da imagem não seja removido da memória enquanto ele ainda é necessário.
+    texto_link.config(image = qr_image)
+    texto_link.image = qr_image #garante que o objeto da imagem não seja removido da memória enquanto ele ainda é necessário.
     
     #Salva a imagem como png
     file_path = filedialog.asksaveasfilename(
