@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 from PIL import Image, ImageTk
 import tkinter as tk
 
@@ -43,5 +44,13 @@ logo2 = logo2.resize((41,42), Image.LANCZOS)
 logo2 = ImageTk.PhotoImage(logo2)
 label_logo2= Button(janela, command='', image=logo2, compound=LEFT, anchor='nw',bg='#3b3b3b', bd=0, activebackground="#FFFFFF")
 label_logo2.place(x=495, y=220)
+
+#Cria uma label para exibir o qrcode gerado
+qr_label = ttk.Label(janela)
+qr_label.pack()
+
+#Cria uma etiqueta para exibir informações do status
+status_label = ttk.Label(janela)
+status_label.pack()
 
 janela.mainloop()
