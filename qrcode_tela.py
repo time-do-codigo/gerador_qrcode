@@ -4,9 +4,7 @@ import io
 from PIL import Image, ImageTk
 from tkinter import filedialog
 from tkinter import *
-from tkinter import ttk
 from PIL import Image, ImageTk
-import tkinter as tk
 
 def gerador_qrcode():
     text = texto_link.get()
