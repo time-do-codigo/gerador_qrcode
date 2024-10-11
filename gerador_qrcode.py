@@ -1,6 +1,7 @@
 import qrcode
 import qrcode.constants
-import io  
+import io 
+from qrcode_tela import qr_label,status_label
 from PIL import Image, ImageTk
 from tkinter import filedialog
 
