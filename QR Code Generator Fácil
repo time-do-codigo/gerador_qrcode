@@ -1,0 +1,48 @@
+# gerador_qrcode
+import qrcode
+from PIL import Image
+import validators
+
+def validar_url(url):
+    # Verifica se a URL é válida
+    return validators.url(url)
+
+def obter_entrada_usuario():
+    print("Digite a informação que deseja converter em um QR Code.")
+    print("Pode ser uma URL, texto, número de telefone, etc.")
+    
+    entrada = input("Sua entrada: ").strip()
+    
+    # Validação básica para uma URL
+    if validar_url(entrada):
+        print("A entrada é uma URL válida!")
+    else:
+        print("A entrada não é uma URL válida. Será considerada como um texto comum.")
+    
+    return entrada
+
+def criar_qrcode(entrada):
+    # Cria o QR Code usando a entrada fornecida
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(entrada)
+    qr.make(fit=True)
+
+    # Gera a imagem do QR Code
+    img = qr.make_image(fill_color="black", back_color="white")
+    img = img.convert('RGB')
+    
+    # Salva a imagem do QR Code
+    nome_arquivo = "qrcode.png"
+    img.save(nome_arquivo)
+    print(f"QR Code gerado e salvo como '{nome_arquivo}'.")
+
+# Chama a função para obter a entrada do usuário
+entrada_usuario = obter_entrada_usuario()
+
+# Gera o QR Code com a entrada fornecida
+criar_qrcode(entrada_usuario)
